@@ -46,7 +46,7 @@ $(() => {
     let windDir;
     let pressure;
     let icon;
-    const toolHTML = "<div class='col-12 col-sm-6 col-md-4 col-xl-2 outer'><div class='card my-cards'><div class='card-header text-center top'>Toolbar</div><div class='card-body days tool'><button id='update-marker' class='btn btn-outline-dark btn-block'>Show Marker</button></h3></div></div></div>"
+    // const toolHTML = "<div class='col-12 col-sm-6 col-md-4 col-xl-2 outer'><div class='card my-cards tool-bar'><div class='card-header text-center top'>Toolbar</div><div class='card-body days tool'><button id='update-marker' class='btn btn-outline-dark btn-block'>Show Marker</button></h3></div></div></div>"
 
     //Functions
     function onDragEnd() {
@@ -96,13 +96,14 @@ $(() => {
     }
     function renderCards(data){
         let cardHTML = "";
+        // cardHTML += toolHTML
         for(var i = 0; i < 5; i++){
             today = getDate(i)
-            max = data.daily[i].temp.max;
-            min = data.daily[i].temp.min;
+            max = Math.trunc(data.daily[i].temp.max);
+            min = Math.trunc(data.daily[i].temp.min);
             description = data.daily[i].weather[0].description
             humidity = data.daily[i].humidity
-            wind = data.daily[i].wind_speed
+            wind = Math.trunc(data.daily[i].wind_speed);
             pressure = data.daily[i].pressure
             icon = "http://openweathermap.org/img/w/" + data.daily[i].weather[0].icon + ".png"
             windDirections(data, i)
@@ -119,7 +120,7 @@ $(() => {
             cardHTML += "<p>" + "Pressure: <strong>" + pressure + "</strong></p>"
             cardHTML += "</div></div></div>"
         }
-        cardHTML += toolHTML
+
         $('#card-row').html(cardHTML)
         $('#update-marker').click(function(){
             marker.setLngLat([lon, lat])
@@ -134,11 +135,11 @@ $(() => {
         }).done(function (data) {
             console.log(data);
             // $('#current').html(data.main.temp + " °F")
-            if(data.name === ""){
-                $('#location').html("Current City: updating...")
-            } else {
-                $('#location').html("Current City: " + data.name)
-            }
+            // if(data.name === ""){
+            //     $('#location').html("Current City: updating...")
+            // } else {
+            //     $('#location').html("Current City: " + data.name)
+            // }
         });
     }
 

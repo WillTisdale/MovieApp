@@ -36,6 +36,7 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="weather_map.html">Weather App</a>
+<!--                    <a class="dropdown-item" href="coffee-project.html">Coffee Project</a>-->
 <!--                    <a class="dropdown-item" href="#">Another action</a>-->
 <!--                    <div class="dropdown-divider"></div>-->
 <!--                    <a class="dropdown-item" href="#">Something else here</a>-->
@@ -51,18 +52,27 @@
                 <a class="nav-link" href="https://github.com/willtisdale" target="_blank">GitHub</a>
             </li>
         </ul>
-        <ul class="navbar-nav ml-auto">
-<!--            <li class="my-auto">-->
-<!--                <a>Weather App</a>-->
-<!--            </li>-->
-            <li id="location" class="my-auto">
-                <a>Current City: San Antonio</a>
-            </li>
-        </ul>
     </div>
 </nav>
 <!--Navbar-->
 
+<div class="map-container container-fluid">
+
+    <div id='map'></div>
+
+</div>
+
+<nav class="navbar navbar-dark my-navbar">
+    <p class="my-auto">
+        <a>5 Day Forecast</a>
+    </p>
+    <p id="location" class="my-auto">
+        <button id='update-marker' class='btn btn-outline-dark btn-block'>Show Marker</button>
+    </p>
+<!--    <p id="location" class="my-auto navbar-header pull-left">-->
+<!--        Current City: San Antonio-->
+<!--    </p>-->
+</nav>
 
 <div id="card-container" class="container-fluid">
 
@@ -70,13 +80,9 @@
 
 </div>
 
-<hr>
 
-<div class="map-container container-fluid">
 
-    <div id='map'></div>
 
-</div>
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
