@@ -23,6 +23,9 @@ hr {
 .tool-bar {
     height: 2em;
 }
+#fiveDay {
+    visibility: hidden;
+}
 #map {
     margin: 1em auto;
     border: 5px solid #A99D89;
@@ -58,6 +61,11 @@ body {
 .row {
     display: flex;
     justify-content: center;
+}
+@media screen and (min-width: 550px){
+    #fiveDay {
+        visibility: unset;
+    }
 }
 @media screen and (min-width: 991px){
     .my-cards {

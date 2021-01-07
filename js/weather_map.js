@@ -105,7 +105,7 @@ $(() => {
             humidity = data.daily[i].humidity
             wind = Math.trunc(data.daily[i].wind_speed);
             pressure = data.daily[i].pressure
-            icon = "http://openweathermap.org/img/w/" + data.daily[i].weather[0].icon + ".png"
+            icon = "https://openweathermap.org/img/w/" + data.daily[i].weather[0].icon + ".png"
             windDirections(data, i)
             cardHTML += "<div class='col-12 col-sm-6 col-md-4 col-xl-2 outer'><div class='card my-cards'>"
             cardHTML += "<div class='card-header text-center top'>"
@@ -127,19 +127,19 @@ $(() => {
         })
     }
     function updateCity(lon, lat) {
-        $.get("http://api.openweathermap.org/data/2.5/weather", {
+        $.get("https://api.openweathermap.org/data/2.5/weather", {
             APPID: OPEN_WEATHER_APPID,
             lat: lat,
             lon: lon,
             units: "imperial"
         }).done(function (data) {
-            console.log(data);
+            // console.log(data);
             // $('#current').html(data.main.temp + " °F")
-            // if(data.name === ""){
-            //     $('#location').html("Current City: updating...")
-            // } else {
-            //     $('#location').html("Current City: " + data.name)
-            // }
+            if(data.name === ""){
+                $('#location').html("Current City: updating...")
+            } else {
+                $('#location').html("Current City: " + data.name)
+            }
         });
     }
 
