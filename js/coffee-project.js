@@ -94,7 +94,7 @@ function addCoffees() {
 }
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
-var coffees = [
+let coffees = [
     {   id: 1,
         name: 'Light City',
         roast: 'light',
@@ -191,7 +191,7 @@ var userRoast = document.querySelector('#roast-creation')
 var lorem = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam rerum suscipit tempora!'
 var newUserCoffees = JSON.parse(localStorage.getItem('newUserCoffees'))
 
-tbody.innerHTML = renderCoffees(newUserCoffees);
+tbody.innerHTML = renderCoffees(coffees);
 
 
 inputButton.addEventListener('click', updateCoffeesNew)

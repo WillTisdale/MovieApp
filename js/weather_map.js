@@ -50,7 +50,7 @@ $(() => {
 
     //Functions
     function onDragEnd() {
-        var lngLat = marker.getLngLat();
+        const lngLat = marker.getLngLat();
         lon = lngLat.lng
         lat = lngLat.lat;
         updateWeather(lat, lon)
@@ -123,7 +123,12 @@ $(() => {
 
         $('#card-row').html(cardHTML)
         $('#update-marker').click(function(){
-            marker.setLngLat([lon, lat])
+            let center = map.getCenter()
+            marker.setLngLat(center)
+            lon = center.lng
+            lat = center.lat
+            updateWeather(lat, lon)
+            updateCity(lon, lat)
         })
     }
     function updateCity(lon, lat) {
@@ -136,9 +141,9 @@ $(() => {
             // console.log(data);
             // $('#current').html(data.main.temp + " °F")
             if(data.name === ""){
-                $('#location').html("Current City: updating...")
+                $('#location').html("")
             } else {
-                $('#location').html("Current City: " + data.name)
+                $('#location').html("Current: " + data.name + "   ~   " + Math.trunc(data.main.temp) + "°F")
             }
         });
     }
