@@ -86,7 +86,7 @@ function addCoffees() {
     coffees.push(newCoffee)
     tbody.innerHTML = renderCoffees(coffees);
     if(typeof newUserCoffees === 'undefined') {
-        console.log('undefined');
+        // console.log('undefined');
         var newUserCoffees = localStorage.setItem('newUserCoffees', JSON.stringify(coffees))
     } else {
         newUserCoffees.push(newCoffee)
