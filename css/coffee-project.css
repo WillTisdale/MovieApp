@@ -1,6 +1,9 @@
 body{
     background-color: #4f2102;
 }
+.my-navbar {
+    background: #6c757d;
+}
 .coffee{
     color: lightgoldenrodyellow;
 }
