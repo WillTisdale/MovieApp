@@ -1,4 +1,5 @@
 "use strict"
+$(document).ready(function(){
 
 function renderCoffee(coffee) {
     var html = '<div class="coffee col-12 col-md-6 col-xl-4"><div class = "card">' + coffee.image + '<div class = "card-body">';
@@ -86,7 +87,6 @@ function addCoffees() {
     coffees.push(newCoffee)
     tbody.innerHTML = renderCoffees(coffees);
     if(typeof newUserCoffees === 'undefined') {
-        // console.log('undefined');
         var newUserCoffees = localStorage.setItem('newUserCoffees', JSON.stringify(coffees))
     } else {
         newUserCoffees.push(newCoffee)
@@ -202,5 +202,5 @@ addToList.addEventListener('click', addCoffees)
 
 
 
-
+});
 
